@@ -291,4 +291,4 @@ We will now mimic a central BI team consuming data prepared by the data engineer
 > **WARNING**: Fabric's built-in sample data sources run continuously and will consume your Capacity Units (CU) indefinitely if left unchecked.
 
 1. Navigate to `es_bikes` and `es_taxi` in `CityPulse-Bronze`.
-2. Click **Stop** or **Pause** on the eventstreams when you are done testing to preserve your trial capacity. You can always restart them later instantly.
+2. Click **Stop** or **Pause** on the eventstreams when you are done testing to preserve your capacity. You can always restart them later instantly.
