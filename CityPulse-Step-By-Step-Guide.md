@@ -5,13 +5,13 @@ This is a comprehensive, step-by-step guide to building the **CityPulse Urban Mo
 This project demonstrates **OneLake shortcuts** (zero-copy data virtualization) combined with Fabric's **built-in sample streaming data**, eliminating the need for external producer scripts.
 
 > [!TIP]
-> **Optimized Build Order:** This guide is ordered to minimize unnecessary trial capacity consumption. We will configure the static infrastructure (workspaces, lakehouses, and external shortcuts) *before* turning on the continuous streaming data sources.
+> **Optimized Build Order:** This guide is ordered to minimize unnecessary consumption. We will configure the static infrastructure (workspaces, lakehouses, and external shortcuts) *before* turning on the continuous streaming data sources.
 
 ---
 
 ## Prerequisites
 Before you begin, ensure you have the following:
-1. **Microsoft Fabric Trial**: A Fabric workspace (you can reuse ones from previous projects or start fresh).
+1. **Microsoft Fabric **: A Fabric workspace.
 2. **Azure Subscription**: An Azure Storage account with a Blob container (Azure free tier is sufficient).
 3. **Reference Data Files**: 
    - `taxi_zone_lookup.csv` (NYC TLC Taxi Zone Lookup table)
@@ -28,7 +28,7 @@ We will simulate an organizational structure by separating our data across two w
 ### 1. Create Workspaces
 1. Navigate to the Fabric portal.
 2. Click **Workspaces** > **New workspace**.
-3. Name it `CityPulse-Bronze` (Make sure it's assigned to a Fabric capacity/trial).
+3. Name it `CityPulse-Bronze` 
 4. Create a second workspace named `CityPulse-Gold`.
 
 ### 2. Create Fabric Items
@@ -98,13 +98,13 @@ Now that the static infrastructure is ready, we will turn on the live streams.
    TaxiTrips | take 10
    ```
 4. > **CRITICAL**: Once you confirm data is flowing, go back to your `es_bikes` and `es_taxi` eventstreams and click **Stop/Pause**. 
-   > *Why we do this: These built-in sample streams run 24/7 automatically and will drain your Fabric trial capacity while you build the rest of this project. You only need them running when testing the PySpark job or viewing the live dashboard.*
+   > *Why we do this: These built-in sample streams run 24/7 automatically and will drain your Fabric capacity while you build the rest of this project. You only need them running when testing the PySpark job or viewing the live dashboard.*
 
 ---
 
 ## Phase 3: Ingest to Silver (Direct KQL Connection)
 
-Since Fabric Trial capacities often stall when syncing OneLake shortcuts in the background, we will bypass the shortcut entirely and pull data directly from the live Eventhouse engine!
+Since Fabric capacities often stall when syncing OneLake shortcuts in the background, we will bypass the shortcut entirely and pull data directly from the live Eventhouse engine!
 > *Why we do this: The Kusto Spark Connector completely skips the physical disk (OneLake) and reads directly from the live KQL compute engine's memory, ensuring real-time data access without waiting for background batch syncs.*
 
 ### 1. Join and Enrich Data (Notebook)
