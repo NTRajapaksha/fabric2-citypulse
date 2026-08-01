@@ -1,6 +1,6 @@
 # CityPulse: Urban Mobility Analytics Platform
 
-**[🎥 View Project Demo Video / Live Dashboard Here](Insert-Link-Here)**
+**[🎥 View Project Demo Video Here](https://www.linkedin.com/posts/thathsara-rajapaksha-834bb2257_fabricinfive-fabricinfive-microsoftfabric-ugcPost-7489184125728522240-KAn3/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9cASgBBNqtcTP6Y08zdngxLk9hIOVGYAM)**
 
 ## Overview
 CityPulse is a unified, zero-copy data analytics platform built entirely on Microsoft Fabric. It demonstrates a modern dual-speed data architecture (Medallion architecture) that processes live streaming telemetry alongside historical data analysis—all without unnecessary data duplication.
